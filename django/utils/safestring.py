@@ -84,3 +84,21 @@ def mark_safe(s):
     if callable(s):
         return _safety_decorator(mark_safe, s)
     return SafeText(str(s))
+
+
+class Noun:
+    def __getattr__(self, item):
+        return self.forms[item]
+
+    def __init__(self, nominative: str, language: str, **kwargs):
+        self.forms = dict(nominative=nominative, **kwargs)
+
+    def __str__(self):
+        return str(self.nominative)
+
+    @property
+    def accusative(self):
+        return self.forms['accusative']
+
+    def __html__(self):
+        return self

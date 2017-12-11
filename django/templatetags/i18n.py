@@ -115,7 +115,7 @@ class BlockTranslateNode(Node):
             if token.token_type == TOKEN_TEXT:
                 result.append(token.contents.replace('%', '%%'))
             elif token.token_type == TOKEN_VAR:
-                result.append('%%(%s)s' % token.contents)
+                result.append('{%s!s}' % token.contents)
                 vars.append(token.contents)
         msg = ''.join(result)
         if self.trimmed:
@@ -161,7 +161,7 @@ class BlockTranslateNode(Node):
         data = {v: render_value(v) for v in vars}
         context.pop()
         try:
-            result = result % data
+            result = result.format(**data)
         except (KeyError, ValueError):
             if nested:
                 # Either string is malformed, or it's a bug

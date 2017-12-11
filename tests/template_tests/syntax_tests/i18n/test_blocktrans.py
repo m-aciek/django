@@ -222,6 +222,12 @@ class I18nBlockTransTagTests(SimpleTestCase):
             output = self.engine.render_to_string('i18n41')
         self.assertEqual(output, '>Error: Seite nicht gefunden<')
 
+    @setup({'i18n03': '{% load i18n %}{% blocktrans %}{{ anton }}{% endblocktrans %}'})
+    def test_i18n42(self):
+        """simple translation of a variable"""
+        output = self.engine.render_to_string('i18n03', {'anton': 'Å'})
+        self.assertEqual(output, 'Å')
+
     @setup({'template': '{% load i18n %}{% blocktrans asvar %}Yes{% endblocktrans %}'})
     def test_blocktrans_syntax_error_missing_assignment(self):
         msg = "No argument provided to the 'blocktrans' tag for the asvar option."

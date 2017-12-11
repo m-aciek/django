@@ -58,7 +58,7 @@ from django.template.context import (  # NOQA: imported for backwards compatibil
 )
 from django.utils.formats import localize
 from django.utils.html import conditional_escape, escape
-from django.utils.safestring import SafeData, mark_safe
+from django.utils.safestring import SafeData, mark_safe, Noun
 from django.utils.text import (
     get_text_list, smart_split, unescape_string_literal,
 )
@@ -971,7 +971,7 @@ def render_value_in_context(value, context):
     value = template_localtime(value, use_tz=context.use_tz)
     value = localize(value, use_l10n=context.use_l10n)
     if context.autoescape:
-        if not issubclass(type(value), str):
+        if not issubclass(type(value), str) and not issubclass(type(value), Noun):
             value = str(value)
         return conditional_escape(value)
     else:

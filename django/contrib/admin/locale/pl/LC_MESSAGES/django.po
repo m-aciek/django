@@ -375,6 +375,9 @@ msgstr "Wyloguj się"
 msgid "Add %(name)s"
 msgstr "Dodaj %(name)s"
 
+msgid "Add {name!s}"
+msgstr "Dodaj {name.accusative!s}"
+
 msgid "History"
 msgstr "Historia"
 

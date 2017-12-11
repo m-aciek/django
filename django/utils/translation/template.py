@@ -132,9 +132,9 @@ def templatize(src, origin=None):
                     )
             elif t.token_type == TOKEN_VAR:
                 if inplural:
-                    plural.append('%%(%s)s' % t.contents)
+                    plural.append('{%s!s}' % t.contents)
                 else:
-                    singular.append('%%(%s)s' % t.contents)
+                    singular.append('{%s!s}' % t.contents)
             elif t.token_type == TOKEN_TEXT:
                 contents = t.contents.replace('%', '%%')
                 if inplural:
