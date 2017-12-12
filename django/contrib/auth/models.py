@@ -7,7 +7,7 @@ from django.db import models
 from django.db.models.manager import EmptyManager
 from django.utils import timezone
 from django.utils.safestring import Noun
-from django.utils.translation import gettext_lazy as _, get_language
+from django.utils.translation import gettext_lazy as _
 
 from .validators import UnicodeUsernameValidator
 
@@ -119,8 +119,8 @@ class Group(models.Model):
     objects = GroupManager()
 
     class Meta:
-        verbose_name_plural = Noun(_('groups'), get_language(), genitive='grup')
-        verbose_name = Noun(_('group'), get_language(), accusative='grupę', plural=verbose_name_plural)
+        verbose_name_plural = Noun('groups')
+        verbose_name = Noun('group', plural=verbose_name_plural)
 
     def __str__(self):
         return self.name
@@ -330,8 +330,8 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['email']
 
     class Meta:
-        verbose_name_plural = Noun(_('users'), get_language(), genitive='użytkowników')
-        verbose_name = Noun(_('user'), get_language(), accusative='użytkownika', plural=verbose_name_plural)
+        verbose_name_plural = Noun('users')
+        verbose_name = Noun('user', plural=verbose_name_plural)
         abstract = True
 
     def clean(self):

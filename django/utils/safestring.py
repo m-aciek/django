@@ -6,6 +6,7 @@ be interpreted by the HTML engine (e.g. '<') into the appropriate entities.
 """
 
 from django.utils.functional import Promise, wraps
+from django.utils.translation import gettext_lazy, pgettext_lazy
 
 
 class SafeData:
@@ -92,15 +93,20 @@ class Noun:
             return self.forms[item]
         return self.nominative
 
-    def __init__(self, nominative: str, language: str, **kwargs):
-        self.forms = dict(nominative=nominative, **kwargs)
+    def __init__(self, root: str, **kwargs):
+        self.root = root
+        self.forms = {'nominative': gettext_lazy(self.root), **kwargs}
 
     def __str__(self):
         return str(self.nominative)
 
     @property
     def accusative(self):
-        return self.forms['accusative']
+        return pgettext_lazy('accusative', self.root)
+
+    @property
+    def genitive(self):
+        return pgettext_lazy('genitive', self.root)
 
     def __html__(self):
         return self

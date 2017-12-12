@@ -166,8 +166,16 @@ msgstr "uprawnienia"
 msgid "group"
 msgstr "grupa"
 
+msgctxt "accusative"
+msgid "group"
+msgstr "grupę"
+
 msgid "groups"
 msgstr "grupy"
+
+msgctxt "genitive"
+msgid "groups"
+msgstr "grup"
 
 msgid "superuser status"
 msgstr "status superużytkownika"
@@ -232,8 +240,16 @@ msgstr "data dołączenia"
 msgid "user"
 msgstr "użytkownik"
 
+msgctxt "accusative"
+msgid "user"
+msgstr "użytkownika"
+
 msgid "users"
 msgstr "użytkownicy"
+
+msgctxt "genitive"
+msgid "users"
+msgstr "użytkowników"
 
 #, python-format
 msgid ""
