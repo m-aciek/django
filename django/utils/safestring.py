@@ -89,24 +89,17 @@ def mark_safe(s):
 
 class Noun:
     def __getattr__(self, item):
-        if item in self.forms:
-            return self.forms[item]
-        return self.nominative
+        if item == 'plural':
+            return self.plural
+        return pgettext_lazy(item, self.root)
 
-    def __init__(self, root: str, **kwargs):
+    def __init__(self, root: str, plural=None):
         self.root = root
-        self.forms = {'nominative': gettext_lazy(self.root), **kwargs}
+        self.nominative = gettext_lazy(self.root)
+        self.plural = plural
 
     def __str__(self):
         return str(self.nominative)
-
-    @property
-    def accusative(self):
-        return pgettext_lazy('accusative', self.root)
-
-    @property
-    def genitive(self):
-        return pgettext_lazy('genitive', self.root)
 
     def __html__(self):
         return self
