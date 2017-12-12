@@ -43,7 +43,7 @@ msgstr "Jesteś pewien?"
 
 #, python-format
 msgid "Delete selected %(verbose_name_plural)s"
-msgstr "Usuń wybrane %(verbose_name_plural)s"
+msgstr "Usuń wybrane {verbose_name_plural.genitive}"
 
 msgid "Administration"
 msgstr "Administracja"
@@ -94,7 +94,7 @@ msgstr "Akcja:"
 
 #, python-format
 msgid "Add another %(verbose_name)s"
-msgstr "Dodaj kolejne %(verbose_name)s"
+msgstr "Dodaj kolejne %(verbose_name.accusative)s"
 
 msgid "Remove"
 msgstr "Usuń"
@@ -134,7 +134,7 @@ msgstr "Dodano „%(object)s”."
 
 #, python-format
 msgid "Changed \"%(object)s\" - %(changes)s"
-msgstr "Zmieniono „%(object)s” - %(changes)s "
+msgstr "Zmieniono „%(object)s” – %(changes)s "
 
 #, python-format
 msgid "Deleted \"%(object)s.\""
@@ -145,7 +145,7 @@ msgstr "Obiekt LogEntry"
 
 #, python-brace-format
 msgid "Added {name} \"{object}\"."
-msgstr "Dodano {name} „{object}”."
+msgstr "Dodano {name.accusative} „{object}”."
 
 msgid "Added."
 msgstr "Dodano."
@@ -232,11 +232,11 @@ msgstr "%(name)s z ID „%(key)s” nie istnieje. Może został usunięty?"
 
 #, python-format
 msgid "Add %s"
-msgstr "Dodaj %s"
+msgstr "Dodaj {0.accusative!s}"
 
 #, python-format
 msgid "Change %s"
-msgstr "Zmień %s"
+msgstr "Zmień {0.accusative!s}"
 
 msgid "Database error"
 msgstr "Błąd bazy danych"
@@ -458,10 +458,10 @@ msgstr ""
 
 #, python-format
 msgid ""
-"Are you sure you want to delete the selected %(objects_name)s? All of the "
+"Are you sure you want to delete the selected {objects_name!s}? All of the "
 "following objects and their related items will be deleted:"
 msgstr ""
-"Czy chcesz skasować zaznaczone %(objects_name)s? Następujące obiekty oraz "
+"Czy chcesz skasować zaznaczone {object_name.genitive}? Następujące obiekty oraz "
 "obiekty od nich zależne zostaną skasowane:"
 
 msgid "Change"
@@ -471,8 +471,16 @@ msgid "Delete?"
 msgstr "Usunąć?"
 
 #, python-format
-msgid " By %(filter_title)s "
-msgstr " Używając %(filter_title)s "
+msgid " By {filter_title!s} "
+msgstr " Używając {filter_title!s} "
+
+
+msgid "{name}"
+msgid_plural "{name}s"
+msgstr[0] "{name}"
+msgstr[1] "{name.plural}"
+msgstr[2] "{name.plural.genitive}"
+
 
 msgid "Summary"
 msgstr "Podsumowanie"
@@ -688,11 +696,11 @@ msgstr "Wszystkie daty"
 
 #, python-format
 msgid "Select %s"
-msgstr "Zaznacz %s"
+msgstr "Zaznacz {0.accusative!s}"
 
 #, python-format
 msgid "Select %s to change"
-msgstr "Zaznacz %s do zmiany"
+msgstr "Zaznacz {0.accusative!s} do zmiany"
 
 msgid "Date:"
 msgstr "Data:"

@@ -856,7 +856,7 @@ class ModelAdmin(BaseModelAdmin):
         """
         choices = [] + default_choices
         for func, name, description in self.get_actions(request).values():
-            choice = (name, description % model_format_dict(self.opts))
+            choice = (name, description.format(**model_format_dict(self.opts)))
             choices.append(choice)
         return choices
 
@@ -1543,7 +1543,7 @@ class ModelAdmin(BaseModelAdmin):
 
         context = dict(
             self.admin_site.each_context(request),
-            title=(_('Add %s') if add else _('Change %s')) % opts.verbose_name,
+            title=(_('Add %s') if add else _('Change %s')).format(opts.verbose_name),
             adminform=adminForm,
             object_id=object_id,
             original=obj,

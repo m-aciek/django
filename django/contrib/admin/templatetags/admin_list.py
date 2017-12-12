@@ -17,7 +17,7 @@ from django.utils import formats
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext as _, ngettext
 
 register = Library()
 
@@ -77,6 +77,13 @@ def pagination(cl):
                 page_range.extend(range(page_num + 1, paginator.num_pages))
 
     need_show_all_link = cl.can_show_all and not cl.show_all and cl.multi_page
+
+    count_note = ngettext(
+        '{name}',
+        '{name}s',
+        cl.result_count
+    )
+
     return {
         'cl': cl,
         'pagination_required': pagination_required,
@@ -84,6 +91,7 @@ def pagination(cl):
         'page_range': page_range,
         'ALL_VAR': ALL_VAR,
         '1': 1,
+        'count_note': count_note.format(name=cl.opts.verbose_name)
     }
 
 

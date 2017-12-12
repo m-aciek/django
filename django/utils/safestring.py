@@ -88,7 +88,9 @@ def mark_safe(s):
 
 class Noun:
     def __getattr__(self, item):
-        return self.forms[item]
+        if item in self.forms:
+            return self.forms[item]
+        return self.nominative
 
     def __init__(self, nominative: str, language: str, **kwargs):
         self.forms = dict(nominative=nominative, **kwargs)

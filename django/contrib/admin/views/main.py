@@ -78,7 +78,7 @@ class ChangeList:
             title = gettext('Select %s')
         else:
             title = gettext('Select %s to change')
-        self.title = title % self.opts.verbose_name
+        self.title = title.format(self.opts.verbose_name)
         self.pk_attname = self.lookup_opts.pk.attname
 
     def get_filters_params(self, params=None):
