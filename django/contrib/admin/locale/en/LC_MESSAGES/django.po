@@ -864,19 +864,16 @@ msgstr ""
 msgid "All dates"
 msgstr ""
 
-#: contrib/admin/views/main.py:102
-#, python-format
-msgid "Select %s"
+#: contrib/admin/views/main.py:103
+msgid "Select {}"
 msgstr ""
 
-#: contrib/admin/views/main.py:104
-#, python-format
-msgid "Select %s to change"
+#: contrib/admin/views/main.py:105
+msgid "Select {} to change"
 msgstr ""
 
-#: contrib/admin/views/main.py:106
-#, python-format
-msgid "Select %s to view"
+#: contrib/admin/views/main.py:107
+msgid "Select {} to view"
 msgstr ""
 
 #: contrib/admin/widgets.py:87
