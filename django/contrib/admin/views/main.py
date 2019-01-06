@@ -100,12 +100,12 @@ class ChangeList:
         self.queryset = self.get_queryset(request)
         self.get_results(request)
         if self.is_popup:
-            title = gettext('Select %s')
+            title = gettext('Select {}')
         elif self.model_admin.has_change_permission(request):
-            title = gettext('Select %s to change')
+            title = gettext('Select {} to change')
         else:
-            title = gettext('Select %s to view')
-        self.title = title % self.opts.verbose_name
+            title = gettext('Select {} to view')
+        self.title = title.format(self.opts.verbose_name)
         self.pk_attname = self.lookup_opts.pk.attname
 
     def __repr__(self):
