@@ -873,18 +873,15 @@ msgid "All dates"
 msgstr ""
 
 #: contrib/admin/views/main.py:103
-#, python-format
-msgid "Select %s"
+msgid "Select {}"
 msgstr ""
 
 #: contrib/admin/views/main.py:105
-#, python-format
-msgid "Select %s to change"
+msgid "Select {} to change"
 msgstr ""
 
 #: contrib/admin/views/main.py:107
-#, python-format
-msgid "Select %s to view"
+msgid "Select {} to view"
 msgstr ""
 
 #: contrib/admin/widgets.py:87
