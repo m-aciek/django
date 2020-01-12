@@ -707,8 +707,8 @@ msgid "Select %s"
 msgstr "Wybierz %s"
 
 #, python-format
-msgid "Select %s to change"
-msgstr "Wybierz %s do zmiany"
+msgid "Select {} to change"
+msgstr "Wybierz {.accusative} do zmiany"
 
 #, python-format
 msgid "Select %s to view"

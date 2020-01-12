@@ -179,6 +179,11 @@ def lazy(func, *resultclasses):
             memo[id(self)] = self
             return self
 
+        def __getattr__(self, item):
+            import importlib
+            translation = importlib.import_module('django.utils.translation')
+            return translation.pgettext_with_fallback_to_gettext(item, *self.__args)
+
     @wraps(func)
     def __wrapper__(*args, **kw):
         # Creates the proxy object, instead of the actual value.

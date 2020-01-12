@@ -19,7 +19,7 @@ __all__ = [
     'ugettext', 'ugettext_lazy', 'ugettext_noop',
     'ngettext', 'ngettext_lazy',
     'ungettext', 'ungettext_lazy',
-    'pgettext', 'pgettext_lazy',
+    'pgettext', 'pgettext_lazy', 'pgettext_noop',
     'npgettext', 'npgettext_lazy',
     'LANGUAGE_SESSION_KEY',
 ]
@@ -75,6 +75,10 @@ def gettext_noop(message):
     return _trans.gettext_noop(message)
 
 
+def pgettext_noop(context, message):
+    return _trans.pgettext_noop(context, message)
+
+
 def ugettext_noop(message):
     """
     A legacy compatibility wrapper for Unicode handling on Python 2.
@@ -124,6 +128,11 @@ def ungettext(singular, plural, number):
 
 def pgettext(context, message):
     return _trans.pgettext(context, message)
+
+
+def fpgettext(context, message):
+    """pgettext that falls back to non-context translation"""
+    return _trans.fpgettext(context, message)
 
 
 def npgettext(context, singular, plural, number):

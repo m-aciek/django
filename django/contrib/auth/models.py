@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 from django.db import models
 from django.db.models.manager import EmptyManager
 from django.utils import timezone
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, pgettext_noop
 
 from .validators import UnicodeUsernameValidator
 
@@ -357,6 +357,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 
     class Meta:
         verbose_name = _('user')
+        pgettext_noop('accusative', 'user')
         verbose_name_plural = _('users')
         abstract = True
 
