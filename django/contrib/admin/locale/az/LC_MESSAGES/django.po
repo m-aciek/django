@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 19:53+0200\n"
+"POT-Creation-Date: 2020-09-02 23:36+0200\n"
 "PO-Revision-Date: 2020-07-14 22:38+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Azerbaijani (http://www.transifex.com/django/django/language/"
@@ -676,17 +676,17 @@ msgstr "Parolumu sıfırla"
 msgid "All dates"
 msgstr "Bütün tarixlərdə"
 
-#, python-format
-msgid "Select %s"
-msgstr "%s seç"
+#, python-brace-format
+msgid "Select {}"
+msgstr "{} seç"
 
-#, python-format
-msgid "Select %s to change"
-msgstr "%s dəyişmək üçün seç"
+#, python-brace-format
+msgid "Select {} to change"
+msgstr "{} dəyişmək üçün seç"
 
-#, python-format
-msgid "Select %s to view"
-msgstr "Görmək üçün %s seçin"
+#, python-brace-format
+msgid "Select {} to view"
+msgstr "Görmək üçün {} seçin"
 
 msgid "Date:"
 msgstr "Tarix:"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-19 16:49+0100\n"
+"POT-Creation-Date: 2020-09-02 23:36+0200\n"
 "PO-Revision-Date: 2017-11-17 08:33+0000\n"
 "Last-Translator: Venelin Stoykov <vkstoykov@gmail.com>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/django/django/language/"
@@ -665,13 +665,13 @@ msgstr "Нова парола"
 msgid "All dates"
 msgstr "Всички дати"
 
-#, python-format
-msgid "Select %s"
-msgstr "Изберете %s"
+#, python-brace-format
+msgid "Select {}"
+msgstr "Изберете {}"
 
-#, python-format
-msgid "Select %s to change"
-msgstr "Изберете %s за промяна"
+#, python-brace-format
+msgid "Select {} to change"
+msgstr "Изберете {} за промяна"
 
 msgid "Date:"
 msgstr "Дата:"

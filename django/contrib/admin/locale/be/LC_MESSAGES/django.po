@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 19:53+0200\n"
+"POT-Creation-Date: 2020-09-02 23:36+0200\n"
 "PO-Revision-Date: 2020-07-15 01:22+0000\n"
 "Last-Translator: znotdead <zhirafchik@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/django/django/language/"
@@ -692,17 +692,17 @@ msgstr "Узнавіць пароль"
 msgid "All dates"
 msgstr "Усе даты"
 
-#, python-format
-msgid "Select %s"
-msgstr "Абраць %s"
+#, python-brace-format
+msgid "Select {}"
+msgstr "Абраць {}"
 
-#, python-format
-msgid "Select %s to change"
-msgstr "Абярыце %s, каб зьмяніць"
+#, python-brace-format
+msgid "Select {} to change"
+msgstr "Абярыце {}, каб зьмяніць"
 
-#, python-format
-msgid "Select %s to view"
-msgstr "Абярыце %s, каб праглядзець"
+#, python-brace-format
+msgid "Select {} to view"
+msgstr "Абярыце {}, каб праглядзець"
 
 msgid "Date:"
 msgstr "Дата:"
