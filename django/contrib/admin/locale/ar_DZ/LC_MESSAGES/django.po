@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 19:53+0200\n"
+"POT-Creation-Date: 2020-09-02 23:36+0200\n"
 "PO-Revision-Date: 2020-07-14 22:38+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Arabic (Algeria) (http://www.transifex.com/django/django/"
@@ -692,17 +692,17 @@ msgstr "استعد كلمة مروري"
 msgid "All dates"
 msgstr "كافة التواريخ"
 
-#, python-format
-msgid "Select %s"
-msgstr "اختر %s"
+#, python-brace-format
+msgid "Select {}"
+msgstr "اختر {}"
 
-#, python-format
-msgid "Select %s to change"
-msgstr "اختر %s لتغييره"
+#, python-brace-format
+msgid "Select {} to change"
+msgstr "اختر {} لتغييره"
 
-#, python-format
-msgid "Select %s to view"
-msgstr "حدد %s للعرض"
+#, python-brace-format
+msgid "Select {} to view"
+msgstr "حدد {} للعرض"
 
 msgid "Date:"
 msgstr "التاريخ:"

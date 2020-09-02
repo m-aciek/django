@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-19 16:49+0100\n"
+"POT-Creation-Date: 2020-09-02 23:36+0200\n"
 "PO-Revision-Date: 2017-09-19 17:44+0000\n"
 "Last-Translator: Jannis Leidel <jannis@leidel.info>\n"
 "Language-Team: Amharic (http://www.transifex.com/django/django/language/"
@@ -612,13 +612,13 @@ msgstr ""
 msgid "All dates"
 msgstr "ሁሉም ቀናት"
 
-#, python-format
-msgid "Select %s"
-msgstr "%sን ምረጥ"
+#, python-brace-format
+msgid "Select {}"
+msgstr "{}ን ምረጥ"
 
-#, python-format
-msgid "Select %s to change"
-msgstr "ለመቀየር %sን ምረጥ"
+#, python-brace-format
+msgid "Select {} to change"
+msgstr "ለመቀየር {}ን ምረጥ"
 
 msgid "Date:"
 msgstr "ቀን:"

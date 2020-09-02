@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 19:53+0200\n"
+"POT-Creation-Date: 2020-09-02 23:36+0200\n"
 "PO-Revision-Date: 2020-07-20 17:06+0000\n"
 "Last-Translator: F Wolff <friedel@translate.org.za>\n"
 "Language-Team: Afrikaans (http://www.transifex.com/django/django/language/"
@@ -692,17 +692,17 @@ msgstr "Herstel my wagwoord"
 msgid "All dates"
 msgstr "Alle datums"
 
-#, python-format
-msgid "Select %s"
-msgstr "Kies %s"
+#, python-brace-format
+msgid "Select {}"
+msgstr "Kies {}"
 
-#, python-format
-msgid "Select %s to change"
-msgstr "Kies %s om te verander"
+#, python-brace-format
+msgid "Select {} to change"
+msgstr "Kies {} om te verander"
 
-#, python-format
-msgid "Select %s to view"
-msgstr "Kies %s om te bekyk"
+#, python-brace-format
+msgid "Select {} to view"
+msgstr "Kies {} om te bekyk"
 
 msgid "Date:"
 msgstr "Datum:"
