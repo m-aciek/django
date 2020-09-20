@@ -628,13 +628,17 @@ msgstr "আমার পাসওয়ার্ড রিসেট করুন"
 msgid "All dates"
 msgstr "সকল তারিখ"
 
-#, python-format
-msgid "Select %s"
-msgstr "%s বাছাই করুন"
+#, python-brace-format
+msgid "Select {}"
+msgstr "{} বাছাই করুন"
 
-#, python-format
-msgid "Select %s to change"
-msgstr "%s পরিবর্তনের জন্য বাছাই করুন"
+#, python-brace-format
+msgid "Select {} to change"
+msgstr "{} পরিবর্তনের জন্য বাছাই করুন"
+
+#, python-brace-format
+msgid "Select {} to view"
+msgstr "{} পরিবর্তনের জন্য বাছাই করুন"
 
 msgid "Date:"
 msgstr "তারিখঃ"
