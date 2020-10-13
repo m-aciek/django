@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 19:53+0200\n"
+"POT-Creation-Date: 2020-09-02 23:36+0200\n"
 "PO-Revision-Date: 2020-07-21 19:04+0000\n"
 "Last-Translator: Mariusz Felisiak <felisiak.mariusz@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/django/django/language/pl/)\n"
@@ -715,17 +715,17 @@ msgstr "Zresetuj moje hasło"
 msgid "All dates"
 msgstr "Wszystkie daty"
 
-#, python-format
-msgid "Select %s"
-msgstr "Wybierz %s"
+#, python-brace-format
+msgid "Select {}"
+msgstr "Wybierz {}"
 
-#, python-format
-msgid "Select %s to change"
-msgstr "Wybierz %s do zmiany"
+#, python-brace-format
+msgid "Select {} to change"
+msgstr "Wybierz {} do zmiany"
 
-#, python-format
-msgid "Select %s to view"
-msgstr "Wybierz %s do obejrzenia"
+#, python-brace-format
+msgid "Select {} to view"
+msgstr "Wybierz {} do obejrzenia"
 
 msgid "Date:"
 msgstr "Data:"
