@@ -643,16 +643,16 @@ msgstr ""
 msgid "All dates"
 msgstr "An holl zeiziadoù"
 
-#, python-format
-msgid "Select %s"
-msgstr "Diuzañ %s"
+#, python-brace-format
+msgid "Select {}"
+msgstr "Diuzañ {}"
 
-#, python-format
-msgid "Select %s to change"
+#, python-brace-format
+msgid "Select {} to change"
 msgstr ""
 
-#, python-format
-msgid "Select %s to view"
+#, python-brace-format
+msgid "Select {} to view"
 msgstr ""
 
 msgid "Date:"
