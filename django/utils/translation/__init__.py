@@ -70,6 +70,10 @@ def gettext_noop(message):
     return _trans.gettext_noop(message)
 
 
+def pgettext_noop(context, message):
+    return _trans.pgettext_noop(context, message)
+
+
 def gettext(message):
     return _trans.gettext(message)
 
@@ -81,6 +85,9 @@ def ngettext(singular, plural, number):
 def pgettext(context, message):
     return _trans.pgettext(context, message)
 
+def pgettext_with_fallback(context, message):
+    return _trans.pgettext_with_fallback(context, message)
+
 
 def npgettext(context, singular, plural, number):
     return _trans.npgettext(context, singular, plural, number)
@@ -88,6 +95,7 @@ def npgettext(context, singular, plural, number):
 
 gettext_lazy = lazy(gettext, str)
 pgettext_lazy = lazy(pgettext, str)
+attributive_gettext_lazy = lazy(gettext, str, getattr_callback=pgettext_with_fallback)
 
 
 def lazy_number(func, resultclass, number=None, **kwargs):

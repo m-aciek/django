@@ -99,10 +99,13 @@ class ChangeList:
         self.queryset = self.get_queryset(request)
         self.get_results(request)
         if self.is_popup:
+            # can use attribute, e.g. Select {.accusative}
             title = gettext('Select {}')
         elif self.model_admin.has_change_permission(request):
+            # can use attribute, e.g. Select {.accusative} to change
             title = gettext('Select {} to change')
         else:
+            # can use attribute, e.g. Select {.accusative} to view
             title = gettext('Select {} to view')
         self.title = title.format(self.opts.verbose_name)
         self.pk_attname = self.lookup_opts.pk.attname
