@@ -73,7 +73,7 @@ class Promise:
     pass
 
 
-def lazy(func, *resultclasses, getattr_callback=None):
+def lazy(func, *resultclasses, getattr_func=None):
     """
     Turn any callable into a lazy evaluated callable. result classes or types
     is required -- at least one is needed so that the automatic forcing of
@@ -190,7 +190,7 @@ def lazy(func, *resultclasses, getattr_callback=None):
             return self
 
         def __getattr__(self, item):
-            return getattr_callback(item, *self.__args, **self.__kw)
+            return getattr_func(item, *self.__args, **self.__kw)
 
     @wraps(func)
     def __wrapper__(*args, **kw):

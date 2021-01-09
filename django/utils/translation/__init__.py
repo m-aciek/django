@@ -95,7 +95,7 @@ def npgettext(context, singular, plural, number):
 
 gettext_lazy = lazy(gettext, str)
 pgettext_lazy = lazy(pgettext, str)
-attributive_gettext_lazy = lazy(gettext, str, getattr_callback=pgettext_with_fallback)
+attributive_gettext_lazy = lazy(gettext, str, getattr_func=pgettext_with_fallback)
 
 
 def lazy_number(func, resultclass, number=None, **kwargs):
