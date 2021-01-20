@@ -190,7 +190,11 @@ def lazy(func, *resultclasses, getattr_func=None):
             return self
 
         def __getattr__(self, item):
-            return getattr_func(item, *self.__args, **self.__kw)
+            if getattr_func:
+                return getattr_func(item, *self.__args, **self.__kw)
+            raise AttributeError(
+                "'{}' object has no attribute '{}'".format(type(self).__name__, item)
+            )
 
     @wraps(func)
     def __wrapper__(*args, **kw):
