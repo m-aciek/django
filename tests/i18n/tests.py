@@ -33,7 +33,7 @@ from django.utils.translation import (
     activate, check_for_language, deactivate, get_language, get_language_bidi,
     get_language_from_request, get_language_info, gettext, gettext_lazy,
     ngettext, ngettext_lazy, npgettext, npgettext_lazy, pgettext,
-    round_away_from_one, to_language, to_locale, trans_null, trans_real,
+    round_away_from_one, to_language, to_locale, trans_null, trans_real, pgettext_nocontext_fallback,
 )
 from django.utils.translation.reloader import (
     translation_file_changed, watch_for_translation_changes,
@@ -269,6 +269,17 @@ class TranslationTests(SimpleTestCase):
             self.assertEqual(pgettext("month name", "May"), "Mai")
             self.assertEqual(pgettext("verb", "May"), "Kann")
             self.assertEqual(npgettext("search", "%d result", "%d results", 4) % 4, "4 Resultate")
+
+    @override_settings(LOCALE_PATHS=extended_locale_paths)
+    def test_pgettext_nocontext_fallback(self):
+        trans_real._active = Local()
+        trans_real._translations = {}
+        with translation.override('de'):
+            self.assertEqual(gettext("father"), "Vater")
+            self.assertEqual(pgettext("genitive", "father"), "Vaters")
+            self.assertEqual(pgettext_nocontext_fallback("genitive", "father"), "Vaters")
+            self.assertEqual(pgettext("unexisting", "father"), "father")
+            self.assertEqual(pgettext_nocontext_fallback("unexisting", "father"), "Vater")
 
     def test_empty_value(self):
         """Empty value must stay empty after being translated (#23196)."""
