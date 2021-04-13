@@ -29,6 +29,7 @@ __all__ = [
     "ngettext_lazy",
     "pgettext",
     "pgettext_lazy",
+    "pgettext_nocontext_fallback",
     "npgettext",
     "npgettext_lazy",
 ]
@@ -102,6 +103,10 @@ def ngettext(singular, plural, number):
 
 def pgettext(context, message):
     return _trans.pgettext(context, message)
+
+
+def pgettext_nocontext_fallback(context, message):
+    return _trans.pgettext_nocontext_fallback(context, message)
 
 
 def npgettext(context, singular, plural, number):

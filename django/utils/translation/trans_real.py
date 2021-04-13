@@ -402,6 +402,21 @@ def pgettext(context, message):
     return result
 
 
+def pgettext_nocontext_fallback(context, message):
+    """
+    Provide context translation but fallback to translation of message without
+    context instead of untranslated message.
+    """
+    msg_with_ctxt = "%s%s%s" % (context, CONTEXT_SEPARATOR, message)
+    result = gettext(msg_with_ctxt)
+    if CONTEXT_SEPARATOR in result:
+        # Translation not found
+        result = gettext(message)
+    elif isinstance(message, SafeData):
+        result = mark_safe(result)
+    return result
+
+
 def gettext_noop(message):
     """
     Mark strings for translation but don't translate them now. This can be
