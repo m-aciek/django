@@ -59,7 +59,7 @@ from django.utils.translation import (
     to_language,
     to_locale,
     trans_null,
-    trans_real,
+    trans_real, pgettext_nocontext_fallback,
 )
 from django.utils.translation.reloader import (
     translation_file_changed,
@@ -366,6 +366,17 @@ class TranslationTests(SimpleTestCase):
             self.assertEqual(
                 npgettext("search", "%d result", "%d results", 4) % 4, "4 Resultate"
             )
+
+    @override_settings(LOCALE_PATHS=extended_locale_paths)
+    def test_pgettext_nocontext_fallback(self):
+        trans_real._active = Local()
+        trans_real._translations = {}
+        with translation.override('de'):
+            self.assertEqual(gettext("father"), "Vater")
+            self.assertEqual(pgettext("genitive", "father"), "Vaters")
+            self.assertEqual(pgettext_nocontext_fallback("genitive", "father"), "Vaters")
+            self.assertEqual(pgettext("unexisting", "father"), "father")
+            self.assertEqual(pgettext_nocontext_fallback("unexisting", "father"), "Vater")
 
     def test_empty_value(self):
         """Empty value must stay empty after being translated (#23196)."""

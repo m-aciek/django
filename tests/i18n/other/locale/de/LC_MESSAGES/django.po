@@ -134,3 +134,12 @@ msgid "Hi {name}, {num} good result"
 msgid_plural "Hi {name}, {num} good results"
 msgstr[0] "Willkommen {name}, {num} gutes Resultat"
 msgstr[1] "Willkommen {name}, {num} guten Resultate"
+
+#: tests.py:273
+msgid "father"
+msgstr "Vater"
+
+#: tests.py:273
+msgctxt "genitive"
+msgid "father"
+msgstr "Vaters"
