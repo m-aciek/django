@@ -1,8 +1,9 @@
 import datetime
+from unittest.mock import patch
 
 from django.contrib import admin
 from django.contrib.admin.models import LogEntry
-from django.contrib.admin.options import IncorrectLookupParameters
+from django.contrib.admin.options import IncorrectLookupParameters, ModelAdmin
 from django.contrib.admin.templatetags.admin_list import pagination
 from django.contrib.admin.tests import AdminSeleniumTestCase
 from django.contrib.admin.views.main import (
@@ -36,7 +37,7 @@ from .admin import (
 from .models import (
     Band, CharPK, Child, ChordsBand, ChordsMusician, Concert, CustomIdUser,
     Event, Genre, Group, Invitation, Membership, Musician, OrderedObject,
-    Parent, Quartet, Swallow, SwallowOneToOne, UnorderedObject,
+    Parent, Quartet, Swallow, SwallowOneToOne, UnorderedObject, User as CustomUser
 )
 
 
@@ -1350,6 +1351,32 @@ class ChangeListTests(TestCase):
         response = m.changelist_view(request)
         self.assertEqual(response.context_data['cl'].search_help_text, 'Search help text')
         self.assertContains(response, '<div class="help">Search help text</div>')
+
+    def test_changelist_title_can_use_proper_grammatical_case_for_model_name(self):
+        """
+        When verbose name of model is gettext string, translation of changelist title
+        can use context translation of model name.
+        """
+        superuser = self._create_superuser('superuser')
+        m = ModelAdmin(CustomUser, custom_site)
+        request = self._mocked_authenticated_request('/user/', superuser)
+
+        def fake_gettext(message):
+            if message == 'Select {} to change':
+                return 'Wybierz {.accusative} do zmiany'
+
+        def fake_pgettext(context, message):
+            if message == 'user' and context == 'accusative':
+                return 'użytkownika'
+
+        with patch(
+            'django.contrib.admin.views.main.gettext', fake_gettext
+        ), patch(
+            'django.utils.translation.attributive_translation_string.pgettext_nocontext_fallback',
+            fake_pgettext,
+        ):
+            ch = m.get_changelist_instance(request)
+        self.assertEqual('Wybierz użytkownika do zmiany', ch.title)
 
 
 class GetAdminLogTests(TestCase):
