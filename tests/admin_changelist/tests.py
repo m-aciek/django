@@ -1,8 +1,9 @@
 import datetime
+from unittest.mock import patch
 
 from django.contrib import admin
 from django.contrib.admin.models import LogEntry
-from django.contrib.admin.options import IncorrectLookupParameters
+from django.contrib.admin.options import IncorrectLookupParameters, ModelAdmin
 from django.contrib.admin.templatetags.admin_list import pagination
 from django.contrib.admin.tests import AdminSeleniumTestCase
 from django.contrib.admin.views.main import (
@@ -69,7 +70,7 @@ from .models import (
     Quartet,
     Swallow,
     SwallowOneToOne,
-    UnorderedObject,
+    UnorderedObject, User as CustomUser
 )
 
 
@@ -1539,6 +1540,32 @@ class ChangeListTests(TestCase):
             '<input type="text" size="40" name="q" value="" id="searchbar" '
             'autofocus aria-describedby="searchbar_helptext">',
         )
+
+    def test_changelist_title_can_use_proper_grammatical_case_for_model_name(self):
+        """
+        When verbose name of model is gettext string, translation of changelist title
+        can use context translation of model name.
+        """
+        superuser = self._create_superuser('superuser')
+        m = ModelAdmin(CustomUser, custom_site)
+        request = self._mocked_authenticated_request('/user/', superuser)
+
+        def fake_gettext(message):
+            if message == 'Select {} to change':
+                return 'Wybierz {.accusative} do zmiany'
+
+        def fake_pgettext(context, message):
+            if message == 'user' and context == 'accusative':
+                return 'użytkownika'
+
+        with patch(
+            'django.contrib.admin.views.main.gettext', fake_gettext
+        ), patch(
+            'django.utils.translation.attributive_translation_string.pgettext_nocontext_fallback',
+            fake_pgettext,
+        ):
+            ch = m.get_changelist_instance(request)
+        self.assertEqual('Wybierz użytkownika do zmiany', ch.title)
 
 
 class GetAdminLogTests(TestCase):

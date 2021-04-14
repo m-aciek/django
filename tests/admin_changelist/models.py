@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+from django.utils.translation import gettext_lazy
 
 
 class Event(models.Model):
@@ -121,3 +122,8 @@ class CustomIdUser(models.Model):
 
 class CharPK(models.Model):
     char_pk = models.CharField(max_length=100, primary_key=True)
+
+
+class User(models.Model):
+    class Meta:
+        verbose_name = gettext_lazy('user')

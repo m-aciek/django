@@ -872,15 +872,18 @@ msgstr ""
 msgid "All dates"
 msgstr ""
 
-#: contrib/admin/views/main.py:103
+#. Translators: you can use attribute on interpolated string to access its context translation
+#: contrib/admin/views/main.py:105
 msgid "Select {}"
 msgstr ""
 
-#: contrib/admin/views/main.py:105
+#. Translators: you can use attribute on interpolated string to access its context translation
+#: contrib/admin/views/main.py:108
 msgid "Select {} to change"
 msgstr ""
 
-#: contrib/admin/views/main.py:107
+#. Translators: you can use attribute on interpolated string to access its context translation
+#: contrib/admin/views/main.py:111
 msgid "Select {} to view"
 msgstr ""
 

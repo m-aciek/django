@@ -31,6 +31,7 @@ from django.urls import reverse
 from django.utils.http import urlencode
 from django.utils.timezone import make_aware
 from django.utils.translation import gettext
+from django.utils.translation.attributive_translation_string import AttributiveTranslationString
 
 # Changelist settings
 ALL_VAR = "all"
@@ -122,12 +123,15 @@ class ChangeList:
         self.queryset = self.get_queryset(request)
         self.get_results(request)
         if self.is_popup:
+            # Translators: you can use attribute on interpolated string to access its context translation
             title = gettext("Select {}")
         elif self.model_admin.has_change_permission(request):
+            # Translators: you can use attribute on interpolated string to access its context translation
             title = gettext("Select {} to change")
         else:
+            # Translators: you can use attribute on interpolated string to access its context translation
             title = gettext("Select {} to view")
-        self.title = title.format(self.opts.verbose_name)
+        self.title = title.format(AttributiveTranslationString.create(self.opts.verbose_name))
         self.pk_attname = self.lookup_opts.pk.attname
 
     def __repr__(self):
