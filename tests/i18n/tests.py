@@ -59,7 +59,8 @@ from django.utils.translation import (
     to_language,
     to_locale,
     trans_null,
-    trans_real, pgettext_nocontext_fallback,
+    trans_real, pgettext_nocontext_fallback, is_lazy_gettext,
+    pgettext_lazy,
 )
 from django.utils.translation.reloader import (
     translation_file_changed,
@@ -455,6 +456,11 @@ class TranslationTests(SimpleTestCase):
         self.assertIs(trans_null.get_language_bidi(), False)
         with override_settings(LANGUAGE_CODE="he"):
             self.assertIs(get_language_bidi(), True)
+
+    def test_is_lazy_gettext(self):
+        self.assertTrue(is_lazy_gettext(gettext_lazy('foo')))
+        self.assertFalse(is_lazy_gettext('bar'))
+        self.assertFalse(is_lazy_gettext(pgettext_lazy('boo', 'far')))
 
 
 class TranslationLoadingTests(SimpleTestCase):
