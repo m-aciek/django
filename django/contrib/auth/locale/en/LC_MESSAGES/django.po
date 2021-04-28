@@ -192,11 +192,21 @@ msgstr ""
 msgid "permission"
 msgstr ""
 
+#: contrib/auth/models.py:70
+msgctxt "accusative"
+msgid "permission"
+msgstr ""
+
 #: contrib/auth/models.py:70 contrib/auth/models.py:112
 msgid "permissions"
 msgstr ""
 
-#: contrib/auth/models.py:119
+#: contrib/auth/models.py:120
+msgid "group"
+msgstr ""
+
+#: contrib/auth/models.py:121
+msgctxt "accusative"
 msgid "group"
 msgstr ""
 
@@ -278,7 +288,12 @@ msgstr ""
 msgid "user"
 msgstr ""
 
-#: contrib/auth/models.py:366
+#: contrib/auth/models.py:368
+msgctxt "accusative"
+msgid "user"
+msgstr ""
+
+#: contrib/auth/models.py:369
 msgid "users"
 msgstr ""
 

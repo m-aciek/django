@@ -9,7 +9,7 @@ from django.db import models
 from django.db.models.manager import EmptyManager
 from django.utils import timezone
 from django.utils.itercompat import is_iterable
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, pgettext_noop
 
 from .validators import UnicodeUsernameValidator
 
@@ -71,6 +71,7 @@ class Permission(models.Model):
 
     class Meta:
         verbose_name = _("permission")
+        pgettext_noop('accusative', 'permission')
         verbose_name_plural = _("permissions")
         unique_together = [["content_type", "codename"]]
         ordering = ["content_type__app_label", "content_type__model", "codename"]
@@ -124,6 +125,7 @@ class Group(models.Model):
 
     class Meta:
         verbose_name = _("group")
+        pgettext_noop('accusative', 'group')
         verbose_name_plural = _("groups")
 
     def __str__(self):
@@ -379,6 +381,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 
     class Meta:
         verbose_name = _("user")
+        pgettext_noop("accusative", "user")
         verbose_name_plural = _("users")
         abstract = True
 
