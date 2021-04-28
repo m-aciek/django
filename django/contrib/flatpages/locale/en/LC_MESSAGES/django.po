@@ -92,5 +92,10 @@ msgid "flat page"
 msgstr ""
 
 #: contrib/flatpages/models.py:32
+msgctxt "accusative"
+msgid "flat page"
+msgstr ""
+
+#: contrib/flatpages/models.py:33
 msgid "flat pages"
 msgstr ""

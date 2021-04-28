@@ -2,7 +2,7 @@ from collections import defaultdict
 
 from django.apps import apps
 from django.db import models
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, pgettext_noop
 
 
 class ContentTypeManager(models.Manager):
@@ -137,6 +137,7 @@ class ContentType(models.Model):
 
     class Meta:
         verbose_name = _('content type')
+        pgettext_noop('accusative', 'content type')
         verbose_name_plural = _('content types')
         db_table = 'django_content_type'
         unique_together = [['app_label', 'model']]

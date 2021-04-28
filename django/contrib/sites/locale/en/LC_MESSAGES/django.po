@@ -29,7 +29,12 @@ msgstr ""
 msgid "display name"
 msgstr ""
 
-#: contrib/sites/models.py:88
+#: contrib/sites/models.py:92
+msgid "site"
+msgstr ""
+
+#: contrib/sites/models.py:93
+msgctxt "accusative"
 msgid "site"
 msgstr ""
 

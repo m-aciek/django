@@ -2,7 +2,7 @@ from django.contrib.sites.models import Site
 from django.db import models
 from django.urls import NoReverseMatch, get_script_prefix, reverse
 from django.utils.encoding import iri_to_uri
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, pgettext_noop
 
 
 class FlatPage(models.Model):
@@ -29,6 +29,7 @@ class FlatPage(models.Model):
     class Meta:
         db_table = 'django_flatpage'
         verbose_name = _('flat page')
+        pgettext_noop('accusative', 'flat page')
         verbose_name_plural = _('flat pages')
         ordering = ['url']
 

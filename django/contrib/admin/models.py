@@ -7,7 +7,7 @@ from django.db import models
 from django.urls import NoReverseMatch, reverse
 from django.utils import timezone
 from django.utils.text import get_text_list
-from django.utils.translation import gettext, gettext_lazy as _
+from django.utils.translation import gettext, gettext_lazy as _, pgettext_noop
 
 ADDITION = 1
 CHANGE = 2
@@ -64,6 +64,7 @@ class LogEntry(models.Model):
 
     class Meta:
         verbose_name = _('log entry')
+        pgettext_noop('accusative', 'log entry')
         verbose_name_plural = _('log entries')
         db_table = 'django_admin_log'
         ordering = ['-action_time']

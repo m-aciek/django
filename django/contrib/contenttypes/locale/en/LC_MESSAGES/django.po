@@ -26,6 +26,11 @@ msgid "content type"
 msgstr ""
 
 #: contrib/contenttypes/models.py:140
+msgctxt "accusative"
+msgid "content type"
+msgstr ""
+
+#: contrib/contenttypes/models.py:141
 msgid "content types"
 msgstr ""
 

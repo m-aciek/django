@@ -1,6 +1,6 @@
 from django.contrib.sites.models import Site
 from django.db import models
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, pgettext_noop
 
 
 class Redirect(models.Model):
@@ -23,6 +23,7 @@ class Redirect(models.Model):
 
     class Meta:
         verbose_name = _('redirect')
+        pgettext_noop('accusative', 'redirect')
         verbose_name_plural = _('redirects')
         db_table = 'django_redirect'
         unique_together = [['site', 'old_path']]
