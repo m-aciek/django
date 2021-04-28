@@ -160,6 +160,11 @@ msgid "log entry"
 msgstr ""
 
 #: contrib/admin/models.py:67
+msgctxt "accusative"
+msgid "log entry"
+msgstr ""
+
+#: contrib/admin/models.py:68
 msgid "log entries"
 msgstr ""
 

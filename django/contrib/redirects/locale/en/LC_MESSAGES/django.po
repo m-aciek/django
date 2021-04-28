@@ -46,5 +46,10 @@ msgid "redirect"
 msgstr ""
 
 #: contrib/redirects/models.py:26
+msgctxt "accusative"
+msgid "redirect"
+msgstr ""
+
+#: contrib/redirects/models.py:27
 msgid "redirects"
 msgstr ""
