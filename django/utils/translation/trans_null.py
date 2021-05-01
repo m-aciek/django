@@ -25,6 +25,9 @@ def pgettext(context, message):
     return gettext(message)
 
 
+pgettext_noop = pgettext
+
+
 def npgettext(context, singular, plural, number):
     return ngettext(singular, plural, number)
 
