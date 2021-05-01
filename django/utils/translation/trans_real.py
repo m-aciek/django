@@ -422,6 +422,13 @@ def gettext_noop(message):
     return message
 
 
+def pgettext_noop(context, message):
+    """
+    Mark strings for context translation but don't translate them now.
+    """
+    return message
+
+
 def do_ntranslate(singular, plural, number, translation_function):
     global _default
 

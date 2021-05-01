@@ -23,11 +23,13 @@ __all__ = [
     "templatize",
     "gettext",
     "gettext_lazy",
-    "gettext_noop", 'is_lazy_gettext',
+    "gettext_noop",
+    "is_lazy_gettext",
     "ngettext",
     "ngettext_lazy",
     "pgettext",
     "pgettext_lazy",
+    "pgettext_noop",
     "pgettext_nocontext_fallback",
     "npgettext",
     "npgettext_lazy",
@@ -98,6 +100,10 @@ def gettext(message):
 
 def ngettext(singular, plural, number):
     return _trans.ngettext(singular, plural, number)
+
+
+def pgettext_noop(context, message):
+    return _trans.pgettext_noop(context, message)
 
 
 def pgettext(context, message):

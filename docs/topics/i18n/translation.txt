@@ -173,6 +173,10 @@ language because they are exchanged over systems or users -- such as strings
 in a database -- but should be translated at the last possible point in time,
 such as when the string is presented to the user.
 
+Use the :func:`django.utils.translation.pgettext_noop()` function to mark a
+string as a :ref:`context translation <contextual-markers>` string without
+translating it.
+
 Pluralization
 -------------
 
