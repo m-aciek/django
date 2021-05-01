@@ -25,7 +25,7 @@ def pgettext(context, message):
     return gettext(message)
 
 
-pgettext_nocontext_fallback = pgettext
+pgettext_noop = pgettext_nocontext_fallback = pgettext
 
 
 def npgettext(context, singular, plural, number):
