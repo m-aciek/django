@@ -13,7 +13,7 @@ from django.utils.translation import gettext as _, gettext_lazy
 
 @action(
     permissions=['delete'],
-    description=gettext_lazy('Delete selected %(verbose_name_plural)s'),
+    description=gettext_lazy('Delete selected {verbose_name_plural}'),
 )
 def delete_selected(modeladmin, request, queryset):
     """
