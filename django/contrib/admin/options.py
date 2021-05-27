@@ -1629,14 +1629,14 @@ class ModelAdmin(BaseModelAdmin):
             media = media + inline_formset.media
 
         if add:
-            title = _('Add %s')
+            title = _('Add {}')
         elif self.has_change_permission(request, obj):
-            title = _('Change %s')
+            title = _('Change {}')
         else:
-            title = _('View %s')
+            title = _('View {}')
         context = {
             **self.admin_site.each_context(request),
-            'title': title % opts.verbose_name,
+            'title': title.format(opts.verbose_name),
             'subtitle': str(obj) if obj else None,
             'adminform': adminForm,
             'object_id': object_id,
