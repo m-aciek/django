@@ -285,15 +285,18 @@ msgstr ""
 msgid "%(name)s with ID “%(key)s” doesn’t exist. Perhaps it was deleted?"
 msgstr ""
 
-#: contrib/admin/options.py:1626
+#. Translators: you can use attribute on interpolated string to access its context translation
+#: contrib/admin/options.py:1628
 msgid "Add {}"
 msgstr ""
 
-#: contrib/admin/options.py:1628
+#. Translators: you can use attribute on interpolated string to access its context translation
+#: contrib/admin/options.py:1631
 msgid "Change {}"
 msgstr ""
 
-#: contrib/admin/options.py:1630
+#. Translators: you can use attribute on interpolated string to access its context translation
+#: contrib/admin/options.py:1634
 msgid "View {}"
 msgstr ""
 
