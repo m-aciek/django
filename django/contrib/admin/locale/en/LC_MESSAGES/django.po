@@ -285,19 +285,16 @@ msgstr ""
 msgid "%(name)s with ID “%(key)s” doesn’t exist. Perhaps it was deleted?"
 msgstr ""
 
-#: contrib/admin/options.py:1633
-#, python-format
-msgid "Add %s"
+#: contrib/admin/options.py:1626
+msgid "Add {}"
 msgstr ""
 
-#: contrib/admin/options.py:1635
-#, python-format
-msgid "Change %s"
+#: contrib/admin/options.py:1628
+msgid "Change {}"
 msgstr ""
 
-#: contrib/admin/options.py:1637
-#, python-format
-msgid "View %s"
+#: contrib/admin/options.py:1630
+msgid "View {}"
 msgstr ""
 
 #: contrib/admin/options.py:1716
