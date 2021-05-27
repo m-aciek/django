@@ -64,6 +64,7 @@ from django.utils.text import (
 )
 from django.utils.translation import gettext as _
 from django.utils.translation import ngettext
+from django.utils.translation.attributive_translation_string import AttributiveTranslationString
 from django.views.decorators.csrf import csrf_protect
 from django.views.generic import RedirectView
 
@@ -1848,14 +1849,17 @@ class ModelAdmin(BaseModelAdmin):
             media = media + inline_formset.media
 
         if add:
+            # Translators: you can use attribute on interpolated string to access its context translation
             title = _("Add {}")
         elif self.has_change_permission(request, obj):
+            # Translators: you can use attribute on interpolated string to access its context translation
             title = _("Change {}")
         else:
+            # Translators: you can use attribute on interpolated string to access its context translation
             title = _("View {}")
         context = {
             **self.admin_site.each_context(request),
-            "title": title.format(opts.verbose_name),
+            "title": title.format(AttributiveTranslationString.create(opts.verbose_name)),
             "subtitle": str(obj) if obj else None,
             "adminform": adminForm,
             "object_id": object_id,
