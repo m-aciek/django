@@ -15,8 +15,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: contrib/admin/actions.py:16
-#, python-format
-msgid "Delete selected %(verbose_name_plural)s"
+#, python-brace-format
+msgid "Delete selected {verbose_name_plural}"
 msgstr ""
 
 #: contrib/admin/actions.py:46
