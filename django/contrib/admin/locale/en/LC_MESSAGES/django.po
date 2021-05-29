@@ -14,7 +14,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: contrib/admin/actions.py:16
+#. Translators: you can use attribute on interpolated string to access its context translation
+#: contrib/admin/actions.py:17
 #, python-brace-format
 msgid "Delete selected {verbose_name_plural}"
 msgstr ""

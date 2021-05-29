@@ -1025,7 +1025,15 @@ class ModelAdmin(BaseModelAdmin):
         """
         choices = [] + default_choices
         for func, name, description in self.get_actions(request).values():
-            choice = (name, description.format(model_format_dict(self.opts)))
+            choice = (
+                name,
+                description.format(
+                    **{
+                        k: AttributiveTranslationString.create(v)
+                        for k, v in model_format_dict(self.opts).items()
+                    }
+                ),
+            )
             choices.append(choice)
         return choices
 

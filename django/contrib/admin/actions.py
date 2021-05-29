@@ -14,6 +14,7 @@ from django.utils.translation import gettext_lazy
 
 @action(
     permissions=["delete"],
+    # Translators: you can use attribute on interpolated string to access its context translation
     description=gettext_lazy("Delete selected {verbose_name_plural}"),
 )
 def delete_selected(modeladmin, request, queryset):
