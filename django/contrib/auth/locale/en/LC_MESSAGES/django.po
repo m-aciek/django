@@ -188,17 +188,21 @@ msgstr ""
 msgid "codename"
 msgstr ""
 
-#: contrib/auth/models.py:69
+#: contrib/auth/models.py:69 contrib/auth/models.py:71
 msgid "permission"
-msgstr ""
+msgid_plural "permissions"
+msgstr[0] ""
+msgstr[1] ""
 
 #: contrib/auth/models.py:70 contrib/auth/models.py:112
 msgid "permissions"
 msgstr ""
 
-#: contrib/auth/models.py:119
+#: contrib/auth/models.py:120 contrib/auth/models.py:122
 msgid "group"
-msgstr ""
+msgid_plural "groups"
+msgstr[0] ""
+msgstr[1] ""
 
 #: contrib/auth/models.py:120 contrib/auth/models.py:247
 msgid "groups"
@@ -274,9 +278,11 @@ msgstr ""
 msgid "date joined"
 msgstr ""
 
-#: contrib/auth/models.py:365
+#: contrib/auth/models.py:367 contrib/auth/models.py:369
 msgid "user"
-msgstr ""
+msgid_plural "users"
+msgstr[0] ""
+msgstr[1] ""
 
 #: contrib/auth/models.py:366
 msgid "users"
