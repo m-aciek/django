@@ -25,13 +25,33 @@ IMMUTABLE_WARNING = (
 )
 
 DEFAULT_NAMES = (
-    'verbose_name', 'verbose_name_plural', 'db_table', 'ordering',
-    'unique_together', 'permissions', 'get_latest_by', 'order_with_respect_to',
-    'app_label', 'db_tablespace', 'abstract', 'managed', 'proxy', 'swappable',
-    'auto_created', 'index_together', 'apps', 'default_permissions',
-    'select_on_save', 'default_related_name', 'required_db_features',
-    'required_db_vendor', 'base_manager_name', 'default_manager_name',
-    'indexes', 'constraints',
+    'verbose_name',
+    'verbose_name_alt',
+    'verbose_name_plural',
+    'db_table',
+    'ordering',
+    'unique_together',
+    'permissions',
+    'get_latest_by',
+    'order_with_respect_to',
+    'app_label',
+    'db_tablespace',
+    'abstract',
+    'managed',
+    'proxy',
+    'swappable',
+    'auto_created',
+    'index_together',
+    'apps',
+    'default_permissions',
+    'select_on_save',
+    'default_related_name',
+    'required_db_features',
+    'required_db_vendor',
+    'base_manager_name',
+    'default_manager_name',
+    'indexes',
+    'constraints',
 )
 
 
@@ -81,6 +101,7 @@ class Options:
         self.default_manager_name = None
         self.model_name = None
         self.verbose_name = None
+        self.verbose_name_alt = None
         self.verbose_name_plural = None
         self.db_table = ''
         self.ordering = []
@@ -155,6 +176,7 @@ class Options:
         self.object_name = cls.__name__
         self.model_name = self.object_name.lower()
         self.verbose_name = camel_case_to_spaces(self.object_name)
+        self.verbose_name_alt = self.verbose_name
 
         # Store the original user-defined values for each option,
         # for use when serializing the model definition

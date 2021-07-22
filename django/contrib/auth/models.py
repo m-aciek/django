@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 from django.db import models
 from django.db.models.manager import EmptyManager
 from django.utils import timezone
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, pgettext_lazy
 
 from .validators import UnicodeUsernameValidator
 
@@ -363,6 +363,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 
     class Meta:
         verbose_name = _('user')
+        verbose_name_alt = pgettext_lazy('alt. verbose name', 'user')
         verbose_name_plural = _('users')
         abstract = True
 

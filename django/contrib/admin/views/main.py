@@ -105,7 +105,7 @@ class ChangeList:
             title = gettext('Select %s to change')
         else:
             title = gettext('Select %s to view')
-        self.title = title % self.opts.verbose_name
+        self.title = title % self.opts.verbose_name_alt
         self.pk_attname = self.lookup_opts.pk.attname
 
     def __repr__(self):

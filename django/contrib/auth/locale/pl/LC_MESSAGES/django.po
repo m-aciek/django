@@ -232,6 +232,10 @@ msgstr "data dołączenia"
 msgid "user"
 msgstr "użytkownik"
 
+msgctxt "alt. verbose name"
+msgid "user"
+msgstr "użytkownika"
+
 msgid "users"
 msgstr "użytkownicy"
 
