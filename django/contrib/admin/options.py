@@ -1637,7 +1637,7 @@ class ModelAdmin(BaseModelAdmin):
             title = _('View %s')
         context = {
             **self.admin_site.each_context(request),
-            'title': title % opts.verbose_name,
+            'title': title % opts.verbose_name_alt,
             'subtitle': str(obj) if obj else None,
             'adminform': adminForm,
             'object_id': object_id,
