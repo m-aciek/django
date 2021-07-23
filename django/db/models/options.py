@@ -27,6 +27,7 @@ IMMUTABLE_WARNING = (
 DEFAULT_NAMES = (
     'verbose_name',
     'verbose_name_alt',
+    'verbose_name_gender',
     'verbose_name_plural',
     'db_table',
     'ordering',
@@ -102,6 +103,7 @@ class Options:
         self.model_name = None
         self.verbose_name = None
         self.verbose_name_alt = None
+        self.verbose_name_gender = None
         self.verbose_name_plural = None
         self.db_table = ''
         self.ordering = []
@@ -176,7 +178,6 @@ class Options:
         self.object_name = cls.__name__
         self.model_name = self.object_name.lower()
         self.verbose_name = camel_case_to_spaces(self.object_name)
-        self.verbose_name_alt = self.verbose_name
 
         # Store the original user-defined values for each option,
         # for use when serializing the model definition
@@ -212,6 +213,8 @@ class Options:
             # by default.
             if self.verbose_name_plural is None:
                 self.verbose_name_plural = format_lazy('{}s', self.verbose_name)
+            if self.verbose_name_alt is None:
+                self.verbose_name_alt = self.verbose_name
 
             # order_with_respect_and ordering are mutually exclusive.
             self._ordering_clash = bool(self.ordering and self.order_with_respect_to)
@@ -221,6 +224,7 @@ class Options:
                 raise TypeError("'class Meta' got invalid attribute(s): %s" % ','.join(meta_attrs))
         else:
             self.verbose_name_plural = format_lazy('{}s', self.verbose_name)
+            self.verbose_name_alt = self.verbose_name
         del self.meta
 
         # If the db_table wasn't provided, use the app_label + model_name.

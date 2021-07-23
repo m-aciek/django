@@ -166,6 +166,14 @@ msgstr "uprawnienia"
 msgid "group"
 msgstr "grupa"
 
+msgctxt "alt. verbose name"
+msgid "group"
+msgstr "grupę"
+
+msgctxt "gender"
+msgid "group"
+msgstr "feminine"
+
 msgid "groups"
 msgstr "grupy"
 
@@ -235,6 +243,10 @@ msgstr "użytkownik"
 msgctxt "alt. verbose name"
 msgid "user"
 msgstr "użytkownika"
+
+msgctxt "gender"
+msgid "user"
+msgstr "masculine"
 
 msgid "users"
 msgstr "użytkownicy"

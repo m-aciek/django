@@ -582,11 +582,37 @@ msgstr[3] "%(counter)s wyników"
 msgid "%(full_result_count)s total"
 msgstr "%(full_result_count)s łącznie"
 
+msgctxt "masculine"
+msgid "Save as new"
+msgstr "Zapisz jako nowego"
+
+msgctxt "masculine inanimate"
 msgid "Save as new"
 msgstr "Zapisz jako nowy"
 
+msgctxt "feminine"
+msgid "Save as new"
+msgstr "Zapisz jako nową"
+
+msgctxt "neuter"
+msgid "Save as new"
+msgstr "Zapisz jako nowe"
+
+msgctxt "masculine"
 msgid "Save and add another"
-msgstr "Zapisz i dodaj nowy"
+msgstr "Zapisz i dodaj kolejnego"
+
+msgctxt "masculine inanimate"
+msgid "Save and add another"
+msgstr "Zapisz i dodaj kolejny"
+
+msgctxt "feminine"
+msgid "Save and add another"
+msgstr "Zapisz i dodaj kolejną"
+
+msgctxt "neuter"
+msgid "Save and add another"
+msgstr "Zapisz i dodaj kolejne"
 
 msgid "Save and continue editing"
 msgstr "Zapisz i kontynuuj edycję"

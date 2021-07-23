@@ -6,8 +6,24 @@
     {% url opts|admin_urlname:'delete' original.pk|admin_urlquote as delete_url %}
     <p class="deletelink-box"><a href="{% add_preserved_filters delete_url %}" class="deletelink">{% translate "Delete" %}</a></p>
 {% endif %}
-{% if show_save_as_new %}<input type="submit" value="{% translate 'Save as new' %}" name="_saveasnew">{% endif %}
-{% if show_save_and_add_another %}<input type="submit" value="{% translate 'Save and add another' %}" name="_addanother">{% endif %}
+{% if show_save_as_new %}
+  <input type="submit" value="{% translate 'Save as new' context opts.verbose_name_gender %}" name="_saveasnew">
+  <!--
+  {% translate 'Save as new' context 'masculine' noop %}
+  {% translate 'Save as new' context 'masculine inanimate' noop %}
+  {% translate 'Save as new' context 'feminine' noop %}
+  {% translate 'Save as new' context 'neuter' noop %}
+  -->
+{% endif %}
+{% if show_save_and_add_another %}
+  <input type="submit" value="{% translate 'Save and add another' context opts.verbose_name_gender %}" name="_addanother">
+  <!--
+  {% translate 'Save and add another' context 'masculine' noop %}
+  {% translate 'Save and add another' context 'masculine inanimate' noop %}
+  {% translate 'Save and add another' context 'feminine' noop %}
+  {% translate 'Save and add another' context 'neuter' noop %}
+  -->
+{% endif %}
 {% if show_save_and_continue %}<input type="submit" value="{% if can_change %}{% translate 'Save and continue editing' %}{% else %}{% translate 'Save and view' %}{% endif %}" name="_continue">{% endif %}
 {% if show_close %}<a href="{% url opts|admin_urlname:'changelist' %}" class="closelink">{% translate 'Close' %}</a>{% endif %}
 {% endblock %}

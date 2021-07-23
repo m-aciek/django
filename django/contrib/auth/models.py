@@ -117,6 +117,8 @@ class Group(models.Model):
 
     class Meta:
         verbose_name = _('group')
+        verbose_name_alt = pgettext_lazy('alt. verbose name', 'group')
+        verbose_name_gender = pgettext_lazy('gender', 'group')
         verbose_name_plural = _('groups')
 
     def __str__(self):
@@ -364,6 +366,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = _('user')
         verbose_name_alt = pgettext_lazy('alt. verbose name', 'user')
+        verbose_name_gender = pgettext_lazy('gender', 'user')
         verbose_name_plural = _('users')
         abstract = True
 
