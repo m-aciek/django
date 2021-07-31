@@ -1,15 +1,13 @@
-from collections import UserString
-
 from django.utils.translation import gettext, is_lazy_gettext, pgettext
 
 
-class AttributiveTranslationString(UserString):
-    def __init__(self, data):
-        super().__init__(gettext(data))
-        self.raw_data = data
+class AttributiveTranslationString(str):
+    def __init__(self, message):
+        super().__init__(gettext(message=message))
+        self.message = message
 
-    def __getattr__(self, item):
-        return pgettext(context=item, message=self.raw_data)
+    def __getattr__(self, context):
+        return pgettext(context=context, message=self.message)
 
     @classmethod
     def create(cls, obj):
@@ -18,6 +16,6 @@ class AttributiveTranslationString(UserString):
         return DummyAttributiveString(obj)
 
 
-class DummyAttributiveString(UserString):
-    def __getattr__(self, item):
-        return self.data
+class DummyAttributiveString(str):
+    def __getattr__(self, context):
+        return self
