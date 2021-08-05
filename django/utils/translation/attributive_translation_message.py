@@ -1,17 +1,18 @@
 from collections import UserString
 
-from django.utils.translation import gettext, pgettext
+from django.utils.translation import pgettext
 
 
 class AttributiveTranslationMessage(UserString):
     def __init__(self, data):
-        super().__init__(gettext(data))
-        self.raw_data = data
+        super().__init__(data)
+        try:
+            self.raw_data = data._proxy____args[0]
+        except AttributeError:
+            self.raw_data = data
 
     def __getattr__(self, item):
-        return pgettext(context=item, message=self.raw_data)
-
-
-class DummyAttributiveMessage(UserString):
-    def __getattr__(self, item):
-        return self.data
+        try:
+            return getattr(self.raw_data, item)
+        except AttributeError:
+            return pgettext(context=item, message=self.raw_data)
