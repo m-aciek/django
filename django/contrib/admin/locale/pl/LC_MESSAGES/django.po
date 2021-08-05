@@ -408,9 +408,9 @@ msgstr "Dokumentacja"
 msgid "Log out"
 msgstr "Wyloguj się"
 
-#, python-format
-msgid "Add %(name)s"
-msgstr "Dodaj %(name)s"
+#, python-brace-format
+msgid "Add {name}"
+msgstr "Dodaj {name.accusative}"
 
 msgid "History"
 msgstr "Historia"
