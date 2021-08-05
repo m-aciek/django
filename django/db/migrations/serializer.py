@@ -10,6 +10,7 @@ import pathlib
 import re
 import types
 import uuid
+from collections import UserString
 
 from django.conf import SettingsReference
 from django.db import models
@@ -306,7 +307,7 @@ class Serializer:
         (datetime.date, datetime.timedelta, datetime.time): DateTimeSerializer,
         SettingsReference: SettingsReferenceSerializer,
         float: FloatSerializer,
-        (bool, int, type(None), bytes, str, range): BaseSimpleSerializer,
+        (bool, int, type(None), bytes, str, range, UserString): BaseSimpleSerializer,
         decimal.Decimal: DecimalSerializer,
         (functools.partial, functools.partialmethod): FunctoolsPartialSerializer,
         (types.FunctionType, types.BuiltinFunctionType, types.MethodType): FunctionTypeSerializer,

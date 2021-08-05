@@ -14,6 +14,9 @@ from django.utils.functional import cached_property
 from django.utils.module_loading import import_string
 from django.utils.text import camel_case_to_spaces, format_lazy
 from django.utils.translation import override
+from django.utils.translation.attributive_translation_message import (
+    AttributiveTranslationMessage,
+)
 
 PROXY_PARENTS = object()
 
@@ -185,7 +188,8 @@ class Options:
                 for attr_name in {'constraints', 'indexes'}:
                     objs = getattr(self, attr_name, [])
                     setattr(self, attr_name, self._format_names_with_class(cls, objs))
-
+            # wrap verbose_name in AttributiveTranslationMessage
+            self.verbose_name = AttributiveTranslationMessage(self.verbose_name)
             # verbose_name_plural is a special case because it uses a 's'
             # by default.
             if self.verbose_name_plural is None:
@@ -198,6 +202,8 @@ class Options:
             if meta_attrs != {}:
                 raise TypeError("'class Meta' got invalid attribute(s): %s" % ','.join(meta_attrs))
         else:
+            # wrap verbose_name in AttributiveTranslationMessage
+            self.verbose_name = AttributiveTranslationMessage(self.verbose_name)
             self.verbose_name_plural = format_lazy('{}s', self.verbose_name)
         del self.meta
 

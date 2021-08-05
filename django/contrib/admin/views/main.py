@@ -5,17 +5,24 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.admin import FieldListFilter
 from django.contrib.admin.exceptions import (
-    DisallowedModelAdminLookup, DisallowedModelAdminToField,
+    DisallowedModelAdminLookup,
+    DisallowedModelAdminToField,
 )
 from django.contrib.admin.options import (
-    IS_POPUP_VAR, TO_FIELD_VAR, IncorrectLookupParameters,
+    IS_POPUP_VAR,
+    TO_FIELD_VAR,
+    IncorrectLookupParameters,
 )
 from django.contrib.admin.utils import (
-    get_fields_from_path, lookup_spawns_duplicates, prepare_lookup_value,
+    get_fields_from_path,
+    lookup_spawns_duplicates,
+    prepare_lookup_value,
     quote,
 )
 from django.core.exceptions import (
-    FieldDoesNotExist, ImproperlyConfigured, SuspiciousOperation,
+    FieldDoesNotExist,
+    ImproperlyConfigured,
+    SuspiciousOperation,
 )
 from django.core.paginator import InvalidPage
 from django.db.models import Exists, F, Field, ManyToOneRel, OrderBy, OuterRef
@@ -47,10 +54,23 @@ class ChangeListSearchForm(forms.Form):
 class ChangeList:
     search_form_class = ChangeListSearchForm
 
-    def __init__(self, request, model, list_display, list_display_links,
-                 list_filter, date_hierarchy, search_fields, list_select_related,
-                 list_per_page, list_max_show_all, list_editable, model_admin, sortable_by,
-                 search_help_text):
+    def __init__(
+        self,
+        request,
+        model,
+        list_display,
+        list_display_links,
+        list_filter,
+        date_hierarchy,
+        search_fields,
+        list_select_related,
+        list_per_page,
+        list_max_show_all,
+        list_editable,
+        model_admin,
+        sortable_by,
+        search_help_text,
+    ):
         self.model = model
         self.opts = model._meta
         self.lookup_opts = self.opts
@@ -85,7 +105,9 @@ class ChangeList:
         self.is_popup = IS_POPUP_VAR in request.GET
         to_field = request.GET.get(TO_FIELD_VAR)
         if to_field and not model_admin.to_field_allowed(request, to_field):
-            raise DisallowedModelAdminToField("The field %s cannot be referenced." % to_field)
+            raise DisallowedModelAdminToField(
+                "The field %s cannot be referenced." % to_field
+            )
         self.to_field = to_field
         self.params = dict(request.GET.items())
         if PAGE_VAR in self.params:
@@ -100,12 +122,12 @@ class ChangeList:
         self.queryset = self.get_queryset(request)
         self.get_results(request)
         if self.is_popup:
-            title = gettext('Select %s')
+            title = gettext('Select {}')
         elif self.model_admin.has_change_permission(request):
-            title = gettext('Select %s to change')
+            title = gettext('Select {} to change')
         else:
-            title = gettext('Select %s to view')
-        self.title = title % self.opts.verbose_name
+            title = gettext('Select {} to view')
+        self.title = title.format(self.opts.verbose_name)
         self.pk_attname = self.lookup_opts.pk.attname
 
     def __repr__(self):
@@ -158,15 +180,20 @@ class ChangeList:
                     field = get_fields_from_path(self.model, field_path)[-1]
 
                 spec = field_list_filter_class(
-                    field, request, lookup_params,
-                    self.model, self.model_admin, field_path=field_path,
+                    field,
+                    request,
+                    lookup_params,
+                    self.model,
+                    self.model_admin,
+                    field_path=field_path,
                 )
                 # field_list_filter_class removes any lookup_params it
                 # processes. If that happened, check if duplicates should be
                 # removed.
                 if lookup_params_count > len(lookup_params):
                     may_have_duplicates |= lookup_spawns_duplicates(
-                        self.lookup_opts, field_path,
+                        self.lookup_opts,
+                        field_path,
                     )
             if spec and spec.has_output():
                 filter_specs.append(spec)
@@ -199,10 +226,12 @@ class ChangeList:
                 if settings.USE_TZ:
                     from_date = make_aware(from_date)
                     to_date = make_aware(to_date)
-                lookup_params.update({
-                    '%s__gte' % self.date_hierarchy: from_date,
-                    '%s__lt' % self.date_hierarchy: to_date,
-                })
+                lookup_params.update(
+                    {
+                        '%s__gte' % self.date_hierarchy: from_date,
+                        '%s__lt' % self.date_hierarchy: to_date,
+                    }
+                )
 
         # At this point, all the parameters used by the various ListFilters
         # have been removed from lookup_params, which now only contains other
@@ -215,7 +244,10 @@ class ChangeList:
                 lookup_params[key] = prepare_lookup_value(key, value)
                 may_have_duplicates |= lookup_spawns_duplicates(self.lookup_opts, key)
             return (
-                filter_specs, bool(filter_specs), lookup_params, may_have_duplicates,
+                filter_specs,
+                bool(filter_specs),
+                lookup_params,
+                may_have_duplicates,
                 has_active_filters,
             )
         except FieldDoesNotExist as e:
@@ -240,7 +272,9 @@ class ChangeList:
         return '?%s' % urlencode(sorted(p.items()))
 
     def get_results(self, request):
-        paginator = self.model_admin.get_paginator(request, self.queryset, self.list_per_page)
+        paginator = self.model_admin.get_paginator(
+            request, self.queryset, self.list_per_page
+        )
         # Get the number of objects, with admin filters applied.
         result_count = paginator.count
 
@@ -265,7 +299,9 @@ class ChangeList:
         self.show_full_result_count = self.model_admin.show_full_result_count
         # Admin actions are shown if there is at least one entry
         # or if entries are not counted because show_full_result_count is disabled
-        self.show_admin_actions = not self.show_full_result_count or bool(full_result_count)
+        self.show_admin_actions = not self.show_full_result_count or bool(
+            full_result_count
+        )
         self.full_result_count = full_result_count
         self.result_list = result_list
         self.can_show_all = can_show_all
@@ -314,7 +350,9 @@ class ChangeList:
         constructed ordering.
         """
         params = self.params
-        ordering = list(self.model_admin.get_ordering(request) or self._get_default_ordering())
+        ordering = list(
+            self.model_admin.get_ordering(request) or self._get_default_ordering()
+        )
         if ORDER_VAR in params:
             # Clear ordering and used params
             ordering = []
@@ -333,7 +371,9 @@ class ChangeList:
                         ordering.append(order_field)
                     elif hasattr(order_field, 'resolve_expression'):
                         # order_field is an expression.
-                        ordering.append(order_field.desc() if pfx == '-' else order_field.asc())
+                        ordering.append(
+                            order_field.desc() if pfx == '-' else order_field.asc()
+                        )
                     # reverse order if order_field has already "-" as prefix
                     elif order_field.startswith('-') and pfx == '-':
                         ordering.append(order_field[1:])
@@ -357,7 +397,8 @@ class ChangeList:
         ordering = list(ordering)
         ordering_fields = set()
         total_ordering_fields = {'pk'} | {
-            field.attname for field in self.lookup_opts.fields
+            field.attname
+            for field in self.lookup_opts.fields
             if field.unique and not field.null
         }
         for part in ordering:
@@ -396,7 +437,9 @@ class ChangeList:
             )
             for field_names in constraint_field_names:
                 # Normalize attname references by using get_field().
-                fields = [self.lookup_opts.get_field(field_name) for field_name in field_names]
+                fields = [
+                    self.lookup_opts.get_field(field_name) for field_name in field_names
+                ]
                 # Composite unique constraints containing a nullable column
                 # cannot ensure total ordering.
                 if any(field.null for field in fields):
@@ -484,7 +527,9 @@ class ChangeList:
 
         # Apply search results
         qs, search_may_have_duplicates = self.model_admin.get_search_results(
-            request, qs, self.query,
+            request,
+            qs,
+            self.query,
         )
 
         # Set query string for clearing all filters.
@@ -533,7 +578,8 @@ class ChangeList:
 
     def url_for_result(self, result):
         pk = getattr(result, self.pk_attname)
-        return reverse('admin:%s_%s_change' % (self.opts.app_label,
-                                               self.opts.model_name),
-                       args=(quote(pk),),
-                       current_app=self.model_admin.admin_site.name)
+        return reverse(
+            'admin:%s_%s_change' % (self.opts.app_label, self.opts.model_name),
+            args=(quote(pk),),
+            current_app=self.model_admin.admin_site.name,
+        )

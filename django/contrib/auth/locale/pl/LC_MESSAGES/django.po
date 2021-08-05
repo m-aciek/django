@@ -166,6 +166,10 @@ msgstr "uprawnienia"
 msgid "group"
 msgstr "grupa"
 
+msgctxt "accusative"
+msgid "group"
+msgstr "grupę"
+
 msgid "groups"
 msgstr "grupy"
 
@@ -231,6 +235,10 @@ msgstr "data dołączenia"
 
 msgid "user"
 msgstr "użytkownik"
+
+msgctxt "accusative"
+msgid "user"
+msgstr "użytkownika"
 
 msgid "users"
 msgstr "użytkownicy"
