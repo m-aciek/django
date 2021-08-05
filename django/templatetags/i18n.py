@@ -136,10 +136,10 @@ class BlockTranslateNode(Node):
         vars = []
         for token in tokens:
             if token.token_type == TokenType.TEXT:
-                result.append(token.contents.replace("%", "%%"))
+                result.append(token.contents)
             elif token.token_type == TokenType.VAR:
-                result.append("%%(%s)s" % token.contents)
-                vars.append(token.contents)
+                result.append("{%s}" % token.contents)
+                vars.append(token.contents.split(".")[0])
         msg = "".join(result)
         if self.trimmed:
             msg = translation.trim_whitespace(msg)
@@ -187,8 +187,8 @@ class BlockTranslateNode(Node):
         data = {v: render_value(v) for v in vars}
         context.pop()
         try:
-            result = result % data
-        except (KeyError, ValueError):
+            result = result.format(**data)
+        except (KeyError, ValueError, IndexError):
             if nested:
                 # Either string is malformed, or it's a bug
                 raise TemplateSyntaxError(

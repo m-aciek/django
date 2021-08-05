@@ -67,6 +67,10 @@ from django.utils.translation import gettext_lazy, pgettext_lazy
 from .exceptions import TemplateSyntaxError
 
 # template syntax constants
+from ..utils.translation.attributive_translation_message import (
+    AttributiveTranslationMessage,
+)
+
 FILTER_SEPARATOR = "|"
 FILTER_ARGUMENT_SEPARATOR = ":"
 VARIABLE_ATTRIBUTE_SEPARATOR = "."
@@ -1042,6 +1046,8 @@ def render_value_in_context(value, context):
     """
     value = template_localtime(value, use_tz=context.use_tz)
     value = localize(value, use_l10n=context.use_l10n)
+    if isinstance(value, AttributiveTranslationMessage):
+        return value
     if context.autoescape:
         if not issubclass(type(value), str):
             value = str(value)
