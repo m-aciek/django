@@ -249,17 +249,17 @@ msgid "%(name)s with ID “%(key)s” doesn’t exist. Perhaps it was deleted?"
 msgstr ""
 "%(name)s z ID „%(key)s” nie istnieje. Może został(a)(-ło) usunięty(-ta)(-te)?"
 
-#, python-format
-msgid "Add %s"
-msgstr "Dodaj %s"
+#, python-brace-format
+msgid "Add {}"
+msgstr "Dodaj {.accusative}"
 
-#, python-format
-msgid "Change %s"
-msgstr "Zmień %s"
+#, python-brace-format
+msgid "Change {}"
+msgstr "Zmień {.accusative}"
 
-#, python-format
-msgid "View %s"
-msgstr "Zobacz %s"
+#, python-brace-format
+msgid "View {}"
+msgstr "Zobacz {.accusative}"
 
 msgid "Database error"
 msgstr "Błąd bazy danych"
