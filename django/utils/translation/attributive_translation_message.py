@@ -16,3 +16,6 @@ class AttributiveTranslationMessage(UserString):
             return getattr(self.raw_data, item)
         except AttributeError:
             return pgettext(context=item, message=self.raw_data)
+
+    def __html__(self):
+        return self.data
