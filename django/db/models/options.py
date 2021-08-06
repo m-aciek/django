@@ -235,6 +235,10 @@ class Options:
 
         # wrap verbose_name in AttributiveTranslationMessage
         self.verbose_name = AttributiveTranslationMessage(self.verbose_name)
+        # wrap verbose_name_plural in AttributiveTranslationMessage
+        self.verbose_name_plural = AttributiveTranslationMessage(
+            self.verbose_name_plural
+        )
 
     def _format_names_with_class(self, cls, objs):
         """App label/class name interpolation for object names."""

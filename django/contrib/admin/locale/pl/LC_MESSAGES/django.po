@@ -751,3 +751,10 @@ msgstr "Aktualny:"
 
 msgid "Change:"
 msgstr "Zmień:"
+
+msgid "{count} {name}"
+msgid_plural "{count} {name_plural}"
+msgstr[0] "{count} {name}"
+msgstr[1] "{count} {name_plural}"
+msgstr[2] "{count} {name_plural.accusative}"
+msgstr[3] "{count} {name.accusative}"
