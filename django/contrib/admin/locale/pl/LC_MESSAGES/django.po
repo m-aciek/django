@@ -504,9 +504,9 @@ msgstr ""
 msgid "Delete?"
 msgstr "Usunąć?"
 
-#, python-format
-msgid " By %(filter_title)s "
-msgstr " Według pola %(filter_title)s "
+#, python-brace-format
+msgid " By {filter_title} "
+msgstr " Według pola {filter_title} "
 
 msgid "Summary"
 msgstr "Podsumowanie"
