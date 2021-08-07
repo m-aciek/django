@@ -29,6 +29,7 @@ IMMUTABLE_WARNING = (
 
 DEFAULT_NAMES = (
     "verbose_name",
+    "verbose_name_gender",
     "verbose_name_plural",
     "db_table",
     "ordering",

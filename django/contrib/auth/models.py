@@ -124,6 +124,7 @@ class Group(models.Model):
 
     class Meta:
         verbose_name = _("group")
+        verbose_name_gender = 'feminine'
         verbose_name_plural = _("groups")
 
     def __str__(self):
@@ -379,6 +380,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 
     class Meta:
         verbose_name = _("user")
+        verbose_name_gender = 'masculine human'
         verbose_name_plural = _("users")
         abstract = True
 
