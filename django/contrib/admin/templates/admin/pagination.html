@@ -6,7 +6,7 @@
     {% paginator_number cl i %}
 {% endfor %}
 {% endif %}
-{% blocktranslate count count=cl.result_count with name=cl.opts.verbose_name name_plural=cl.opts.verbose_name_plural trimmed %}
+{% blocktranslate count count=cl.result_count with name=cl.opts.verbose_name name_plural=cl.opts.verbose_name_plural trimmed context cl.opts.verbose_name_gender %}
   {{ count }} {{ name }}
   {% plural %}
   {{ count }} {{ name_plural }}

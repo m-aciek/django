@@ -176,6 +176,10 @@ msgstr "grupę"
 msgid "groups"
 msgstr "grupy"
 
+msgctxt "genitive"
+msgid "groups"
+msgstr "grup"
+
 msgid "superuser status"
 msgstr "status superużytkownika"
 
@@ -246,7 +250,7 @@ msgstr "użytkownika"
 msgid "users"
 msgstr "użytkownicy"
 
-msgctxt "accusative"
+msgctxt "genitive"
 msgid "users"
 msgstr "użytkowników"
 
