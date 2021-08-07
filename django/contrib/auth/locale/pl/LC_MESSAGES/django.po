@@ -173,6 +173,10 @@ msgctxt "accusative"
 msgid "group"
 msgstr "grupę"
 
+msgctxt "grammatical gender"
+msgid "group"
+msgstr "feminine"
+
 msgid "groups"
 msgstr "grupy"
 
@@ -246,6 +250,10 @@ msgstr "użytkownik"
 msgctxt "accusative"
 msgid "user"
 msgstr "użytkownika"
+
+msgctxt "grammatical gender"
+msgid "user"
+msgstr "masculine human"
 
 msgid "users"
 msgstr "użytkownicy"

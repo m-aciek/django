@@ -9,7 +9,7 @@ from django.db import models
 from django.db.models.manager import EmptyManager
 from django.utils import timezone
 from django.utils.itercompat import is_iterable
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, pgettext_lazy
 
 from .validators import UnicodeUsernameValidator
 
@@ -124,7 +124,7 @@ class Group(models.Model):
 
     class Meta:
         verbose_name = _("group")
-        verbose_name_gender = 'feminine'
+        verbose_name_gender = pgettext_lazy('grammatical gender', 'group')
         verbose_name_plural = _("groups")
 
     def __str__(self):
@@ -380,7 +380,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 
     class Meta:
         verbose_name = _("user")
-        verbose_name_gender = 'masculine human'
+        verbose_name_gender = pgettext_lazy('grammatical gender', 'user')
         verbose_name_plural = _("users")
         abstract = True
 
