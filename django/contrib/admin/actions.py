@@ -1,6 +1,7 @@
 """
 Built-in, globally-available admin actions.
 """
+from functools import partial
 
 from django.contrib import messages
 from django.contrib.admin import helpers
@@ -10,11 +11,12 @@ from django.core.exceptions import PermissionDenied
 from django.template.response import TemplateResponse
 from django.utils.translation import gettext as _
 from django.utils.translation import gettext_lazy
+from django.utils.translation import pgettext
 
 
 @action(
     permissions=["delete"],
-    description=gettext_lazy("Delete selected %(verbose_name_plural)s"),
+    description=partial(pgettext, message="Delete selected {verbose_name_plural}"),
 )
 def delete_selected(modeladmin, request, queryset):
     """

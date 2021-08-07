@@ -31,9 +31,25 @@ msgstr ""
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#, python-format
-msgid "Delete selected %(verbose_name_plural)s"
-msgstr "Usuń wybrane(-nych) %(verbose_name_plural)s"
+#, python-brace-format
+msgctxt "masculine human"
+msgid "Delete selected {verbose_name_plural}"
+msgstr "Usuń wybranych {verbose_name_plural.genitive}"
+
+#, python-brace-format
+msgctxt "masculine non-human"
+msgid "Delete selected {verbose_name_plural}"
+msgstr "Usuń wybrane {verbose_name_plural}"
+
+#, python-brace-format
+msgctxt "feminine"
+msgid "Delete selected {verbose_name_plural}"
+msgstr "Usuń wybrane {verbose_name_plural}"
+
+#, python-brace-format
+msgctxt "neuter"
+msgid "Delete selected {verbose_name_plural}"
+msgstr "Usuń wybrane {verbose_name_plural}"
 
 #, python-format
 msgid "Successfully deleted %(count)d %(items)s."

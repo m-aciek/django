@@ -1024,7 +1024,9 @@ class ModelAdmin(BaseModelAdmin):
         """
         choices = [] + default_choices
         for func, name, description in self.get_actions(request).values():
-            choice = (name, description % model_format_dict(self.opts))
+            if callable(description):
+                description = description(self.opts.verbose_name_gender)
+            choice = (name, description.format(**model_format_dict(self.opts)))
             choices.append(choice)
         return choices
 
