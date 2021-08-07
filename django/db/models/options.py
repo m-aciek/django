@@ -110,6 +110,7 @@ class Options:
         self.default_manager_name = None
         self.model_name = None
         self.verbose_name = None
+        self.verbose_name_gender = 'masculine non-human'
         self.verbose_name_plural = None
         self.db_table = ""
         self.ordering = []
