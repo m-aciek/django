@@ -37,7 +37,12 @@ msgid "Delete selected {verbose_name_plural}"
 msgstr "Usuń wybranych {verbose_name_plural.genitive}"
 
 #, python-brace-format
-msgctxt "masculine non-human"
+msgctxt "masculine non-human animate"
+msgid "Delete selected {verbose_name_plural}"
+msgstr "Usuń wybrane {verbose_name_plural}"
+
+#, python-brace-format
+msgctxt "masculine non-human inanimate"
 msgid "Delete selected {verbose_name_plural}"
 msgstr "Usuń wybrane {verbose_name_plural}"
 
@@ -611,8 +616,25 @@ msgstr "%(full_result_count)s łącznie"
 msgid "Save as new"
 msgstr "Zapisz jako nowy"
 
+msgctxt "masculine human"
 msgid "Save and add another"
-msgstr "Zapisz i dodaj nowy"
+msgstr "Zapisz i dodaj kolejnego"
+
+msgctxt "masculine non-human animate"
+msgid "Save and add another"
+msgstr "Zapisz i dodaj kolejnego"
+
+msgctxt "masculine non-human inanimate"
+msgid "Save and add another"
+msgstr "Zapisz i dodaj kolejny"
+
+msgctxt "feminine"
+msgid "Save and add another"
+msgstr "Zapisz i dodaj kolejną"
+
+msgctxt "neuter"
+msgid "Save and add another"
+msgstr "Zapisz i dodaj kolejne"
 
 msgid "Save and continue editing"
 msgstr "Zapisz i kontynuuj edycję"
@@ -776,7 +798,15 @@ msgstr[1] "{count} {name_plural.genitive}"
 msgstr[2] "{count} {name_plural.genitive}"
 msgstr[3] "{count} {name.genitive}"
 
-msgctxt "masculine non-human"
+msgctxt "masculine non-human animate"
+msgid "{count} {name}"
+msgid_plural "{count} {name_plural}"
+msgstr[0] "{count} {name}"
+msgstr[1] "{count} {name_plural}"
+msgstr[2] "{count} {name_plural.genitive}"
+msgstr[3] "{count} {name.genitive}"
+
+msgctxt "masculine non-human inanimate"
 msgid "{count} {name}"
 msgid_plural "{count} {name_plural}"
 msgstr[0] "{count} {name}"
