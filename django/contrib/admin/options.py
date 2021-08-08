@@ -1026,6 +1026,13 @@ class ModelAdmin(BaseModelAdmin):
         for func, name, description in self.get_actions(request).values():
             if callable(description):
                 description = description(self.opts.verbose_name_gender)
+            if '%(verbose_name' in description:
+                warnings.warn(
+                    'The actions description will use new style format strings for injecting verbose names '
+                    f'in Django 5.0. You should upgrade the description to use new style format string: \'{description}\'.',
+                    category=RemovedInDjango50Warning,
+                )
+                description = description % model_format_dict(self.opts)
             choice = (name, description.format(**model_format_dict(self.opts)))
             choices.append(choice)
         return choices
