@@ -14,6 +14,7 @@ from django.utils.functional import cached_property
 from django.utils.module_loading import import_string
 from django.utils.text import camel_case_to_spaces, format_lazy
 from django.utils.translation import override
+from django.utils.translation.attributive_translation import make_attributive
 
 PROXY_PARENTS = object()
 
@@ -233,6 +234,9 @@ class Options:
 
         if self.swappable:
             setting_changed.connect(self.setting_changed)
+
+        self.verbose_name = make_attributive(self.verbose_name)
+        self.verbose_name_plural = make_attributive(self.verbose_name_plural)
 
     def _format_names(self, objs):
         """App label/class name interpolation for object names."""
