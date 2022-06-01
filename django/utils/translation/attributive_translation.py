@@ -13,6 +13,8 @@ def make_attributive(message):
 
 class DummyAttributiveString(str):
     def __getattr__(self, item):
+        if item.startswith("__"):
+            raise AttributeError
         return self
 
 class AttributiveTranslationMessage(UserString):
@@ -20,6 +22,8 @@ class AttributiveTranslationMessage(UserString):
         self.data = data
 
     def __getattr__(self, item):
+        if item.startswith("__"):
+            raise AttributeError
         return pgettext_nocontext_fallback(
             context=item, message=self.data._proxy____args[0]
         )

@@ -22,6 +22,12 @@ class TestAttributiveTranslationString(TestCase):
         self.assertEqual(attributive_string, "foo")
         self.assertEqual(attributive_string.bar, "foo")
 
+    def test_doesnt_work_for_dunder_attributes(self):
+        dummy = make_attributive("foo")
+        self.assertFalse(hasattr(dummy, "__html__"))
+        rich = make_attributive(gettext_lazy("foo"))
+        self.assertFalse(hasattr(rich, "__html__"))
+
 
 class TestAttributiveTranslationStringDjango(SimpleTestCase):
     @override_settings(LOCALE_PATHS=extended_locale_paths)
