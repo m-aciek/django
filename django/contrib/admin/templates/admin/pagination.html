@@ -6,7 +6,11 @@
     {% paginator_number cl i %}
 {% endfor %}
 {% endif %}
-{{ cl.result_count }} {% if cl.result_count == 1 %}{{ cl.opts.verbose_name }}{% else %}{{ cl.opts.verbose_name_plural }}{% endif %}
+{% blocktranslate count count=cl.result_count with name=cl.opts.verbose_name name_plural=cl.opts.verbose_name_plural trimmed %}
+  {{ count }} {{ name }}
+  {% plural %}
+  {{ count }} {{ name_plural }}
+{% endblocktranslate %}
 {% if show_all_url %}<a href="{{ show_all_url }}" class="showall">{% translate 'Show all' %}</a>{% endif %}
 {% if cl.formset and cl.result_count %}<input type="submit" name="_save" class="default" value="{% translate 'Save' %}">{% endif %}
 </p>
