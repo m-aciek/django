@@ -89,11 +89,6 @@ class TranslateNode(Node):
             )
         output = self.filter_expression.resolve(context)
         value = render_value_in_context(output, context)
-        # Restore percent signs. Percent signs in template text are doubled
-        # so they are not interpreted as string format flags.
-        is_safe = isinstance(value, SafeData)
-        value = value.replace("%%", "%")
-        value = mark_safe(value) if is_safe else value
         if self.asvar:
             context[self.asvar] = value
             return ""
@@ -136,9 +131,9 @@ class BlockTranslateNode(Node):
         vars = []
         for token in tokens:
             if token.token_type == TokenType.TEXT:
-                result.append(token.contents.replace("%", "%%"))
+                result.append(token.contents)
             elif token.token_type == TokenType.VAR:
-                result.append("%%(%s)s" % token.contents)
+                result.append("{%s}" % token.contents)
                 vars.append(token.contents)
         msg = "".join(result)
         if self.trimmed:
@@ -187,8 +182,8 @@ class BlockTranslateNode(Node):
         data = {v: render_value(v) for v in vars}
         context.pop()
         try:
-            result %= data
-        except (KeyError, ValueError):
+            result = result.format(**data)
+        except (KeyError, ValueError, IndexError):
             if nested:
                 # Either string is malformed, or it's a bug
                 raise TemplateSyntaxError(
