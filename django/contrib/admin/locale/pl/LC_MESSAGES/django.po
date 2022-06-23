@@ -814,3 +814,11 @@ msgstr "Aktualny:"
 
 msgid "Change:"
 msgstr "Zmień:"
+
+#, python-brace-format
+msgid "{count} {name}"
+msgid_plural "{count} {name_plural}"
+msgstr[0] "{count} {name}"
+msgstr[1] "{count} {name_plural}"
+msgstr[2] "{count} {name_plural.__globals__}"
+msgstr[3] "{count} {name}"

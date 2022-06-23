@@ -276,6 +276,10 @@ msgstr "użytkownik"
 msgid "users"
 msgstr "użytkownicy"
 
+msgctxt "genitive"
+msgid "users"
+msgstr "użytkowników"
+
 #, python-format
 msgid ""
 "This password is too short. It must contain at least %(min_length)d "
